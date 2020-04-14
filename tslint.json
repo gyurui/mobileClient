@@ -1,0 +1,32 @@
+{
+  "extends": "gts/tslint.json",
+  "linterOptions": {
+    "exclude": [
+      "**/*.json"
+    ]
+  },
+  "rules": {
+    "quotemark": [
+      true,
+      "double",
+      "jsx-double"
+    ],
+    "member-access": true,
+    "trailing-comma": [
+      true,
+      {
+        "multiline": "always",
+        "singleline": "never"
+      }
+    ],
+    "object-literal-shorthand": false,
+    "no-inferrable-types": false,
+    "no-unused-expression": [true, "allow-fast-null-checks"],
+    "max-line-length": [
+      true,
+      {
+        "limit": 200
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "extends": ["./node_modules/gts/", "plugin:react/recommended"],
+  "rules": {
+    "node/no-extraneous-import": ["off", {
+      "allowModules": [],
+      "resolvePaths": [],
+      "tryExtensions": []
+    }],
+    "quotes": ["warn", "double", { "avoidEscape": true }]
+  },
+  "settings": {
+      "import/resolver": {
+        "node": {}
+      }
+  },
+  "plugins": [
+    "react"
+  ]
+}
