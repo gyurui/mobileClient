@@ -9,10 +9,12 @@ import { LoginScreen } from "@screens/Login/LoginScreen";
 import { StyleSheet } from "react-native";
 import { SensorScreen } from "@screens/Sensor/SensorScreen";
 import { Font } from "@theme/Font";
+import { StartMeasurementScreen } from "@screens/StartMeasurement/StartMeasurementScreen";
 
 export interface MainStackParamList extends ParamListBase {
     login: undefined;
     sensor: undefined;
+    start: undefined;
 }
 
 export class Router {
@@ -21,7 +23,7 @@ export class Router {
     public static readonly mainStackNavigator = () => {
         return (
             <Router.mainStack.Navigator
-                initialRouteName={MainStack.sensor}
+                initialRouteName={MainStack.login}
                 drawerStyle={drawerStyles.drawerStyle}
                 drawerPosition={"right"}
                 drawerContentOptions={{
@@ -32,6 +34,7 @@ export class Router {
             >
                 <Router.mainStack.Screen name={MainStack.login} component={LoginScreen} />
                 <Router.mainStack.Screen name={MainStack.sensor} component={SensorScreen} />
+                <Router.mainStack.Screen name={MainStack.start} component={StartMeasurementScreen} />
             </Router.mainStack.Navigator>
         );
     };

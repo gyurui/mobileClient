@@ -25,6 +25,7 @@
     "lodash": "^4.17.15",
     "react": "16.11.0",
     "react-native": "0.62.1",
+    "react-native-device-info": "^5.5.6",
     "react-native-gesture-handler": "^1.6.1",
     "react-native-iphone-se-helper": "0.0.2",
     "react-native-iphone-x-helper": "^1.2.1",

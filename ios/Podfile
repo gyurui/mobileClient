@@ -54,13 +54,6 @@ target 'MobileClient' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  pod 'RNSVG', :path => '../node_modules/react-native-svg'
-
-  target 'MobileClientTests' do
-    inherit! :complete
-    # Pods for testing
-  end
-
   use_native_modules!
 
   # Enables Flipper.
@@ -73,11 +66,3 @@ target 'MobileClient' do
   end
 end
 
-target 'MobileClient-tvOS' do
-  # Pods for MobileClient-tvOS
-
-  target 'MobileClient-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-end

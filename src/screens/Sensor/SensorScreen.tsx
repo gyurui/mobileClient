@@ -1,12 +1,12 @@
 import React, { Component, ReactNode } from "react";
 import { StyleSheet, View, BackHandler, PixelRatio, Dimensions, Text, StatusBar, SafeAreaView } from "react-native";
 import { Subscription } from "rxjs";
-import { gyroscope } from "react-native-sensors";
+import { accelerometer } from "react-native-sensors";
 import { Colors } from "@theme/Colors";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { ViewUtils } from "@utils/ViewUtils";
 import { Font } from "@theme/Font";
-import { VictoryChart, VictoryLine, VictoryTheme } from "victory-native";
+import { VictoryChart, VictoryLine } from "victory-native";
 import { ApiService } from "@services/ApiServices";
 
 interface State {
@@ -46,8 +46,7 @@ export class SensorScreen extends Component<{}, State> {
     private z = 0;
 
     public componentDidMount() {
-        ApiService.init();
-        const subscription = gyroscope.subscribe(({ x, y, z }) => {
+        const subscription = accelerometer.subscribe(({ x, y, z }) => {
             this.x = this.x + x;
             this.y = this.y + y;
             this.z = this.z + z;
@@ -112,21 +111,6 @@ export class SensorScreen extends Component<{}, State> {
 
         return (
             <SafeAreaView style={styles.container}>
-                {/*<View style={styles.container}>*/}
-                {/*    <Image*/}
-                {/*        style={[*/}
-                {/*            styles.image,*/}
-                {/*            {*/}
-                {/*                transform: [*/}
-                {/*                    {*/}
-                {/*                        translateX: positionOnScreenX + movementX,*/}
-                {/*                    },*/}
-                {/*                ],*/}
-                {/*            },*/}
-                {/*        ]}*/}
-                {/*        source={{ uri: this.state.image }}*/}
-                {/*    />*/}
-                {/*</View>*/}
                 <StatusBar barStyle={"light-content"} backgroundColor={Colors.tuna} />
                 <KeyboardAwareScrollView contentContainerStyle={styles.keyboardAware}>
                     <View style={styles.innerContainer}>

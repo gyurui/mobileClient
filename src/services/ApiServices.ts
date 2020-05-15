@@ -7,8 +7,10 @@ import { ErrorConst } from "@src/const/ErrorConst";
 import { SerializationUtils } from "@utils/SerializationUtils";
 import { ApiError } from "@models/error/ApiError";
 import * as _ from "lodash";
+import { MeasurementData } from "@models/api/MeasurementData";
 
 enum ApiPath {
+    root = "/",
     data = "/data",
 }
 
@@ -20,8 +22,8 @@ export class ApiService {
 
     private static httpClient: AxiosInstance;
 
-    public static async init(): Promise<void> {
-        ApiService.apiUrl = Env.get.apiUrl;
+    public static async init(apiUrl?: string): Promise<void> {
+        ApiService.apiUrl = apiUrl ?? Env.get.apiUrl;
 
         ApiService.httpClient = axios.create({
             timeout: Env.get.apiTimeout,
@@ -40,6 +42,21 @@ export class ApiService {
      */
     public static async sendData(plotData: PlotData[]): Promise<void> {
         const response: AxiosResponse<{ success: boolean }> = await ApiService.call(HttpMethod.POST, ApiPath.data, { data: { plotData: JSON.stringify(plotData) } }, false);
+    }
+
+    /**
+     * request send data to the server
+     */
+    public static async sendMeasurementData(measurementData: MeasurementData): Promise<void> {
+        const response: AxiosResponse<{ success: boolean }> = await ApiService.call(HttpMethod.POST, ApiPath.data, { data: measurementData }, false);
+    }
+
+    /**
+     * get send data from the server
+     */
+    public static async getServeState(): Promise<boolean> {
+        const response: AxiosResponse<{ message: string }> = await ApiService.call(HttpMethod.GET, ApiPath.root);
+        return response.data.message === "ok";
     }
 
     /**

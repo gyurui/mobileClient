@@ -1,11 +1,12 @@
 import React from "react";
-import { Text as ReactText, TextProps } from "react-native";
+import {Text as ReactText, TextProps, TextStyle} from "react-native";
 
 import { Colors } from "@theme/Colors";
 import { Font } from "@theme/Font";
 
 interface Props extends TextProps {
     fontWeight?: "bold" | "medium" | "light";
+    style: TextStyle;
 }
 
 export class Text extends React.Component<Props> {
