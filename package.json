@@ -22,7 +22,7 @@
     "@react-navigation/native": "^5.1.5",
     "@types/lodash": "^4.14.149",
     "axios": "^0.19.2",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "react": "16.11.0",
     "react-native": "0.62.1",
     "react-native-device-info": "^5.5.6",
